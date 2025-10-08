@@ -2,17 +2,15 @@ cmake_minimum_required(VERSION 3.10)
 
 project(White_Noise LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11) 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(SDL2 REQUIRED CONFIG)
-
-include_directories(${SDL2_INCLUDE_DIRS})
+find_package(SDL2 REQUIRED)
 
 add_executable(noise src/main.cpp)
 
-target_link_libraries(noise ${SDL2_LIBRARIES})
+target_link_libraries(noise SDL2::SDL2)
 
 add_custom_target(clear
     COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/CMakeFiles
