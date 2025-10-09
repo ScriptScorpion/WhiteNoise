@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <random>
 #include <cstdint>
+#include <cmath> // for tanh
 
 #define X 1000
 #define Y 700
