@@ -6,13 +6,13 @@
 #define X 1000
 #define Y 700
 
+std::random_device rd;
+std::mt19937 gen(rd());
+
 const int SAMPLE_RATE = 44100;
 const int VOLUME = 21000;
  
 void AudioCallback(void* userdata, uint8_t* stream, int len) {
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
     std::uniform_real_distribution <double> dist(1.0, 2.0);
  
     int16_t* buffer = (int16_t*)stream;
@@ -26,8 +26,6 @@ void AudioCallback(void* userdata, uint8_t* stream, int len) {
     }
 }
 void Draw(SDL_Renderer *renderer, const int posX, const int posY) {
-    std::random_device rd;
-    std::mt19937 gen(rd());
     std::uniform_int_distribution <int> dist(1, 2);
  
     int red = 255;
